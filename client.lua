@@ -2,11 +2,12 @@ local taser = "WEAPON_STUNGUN"
 local src = PlayerPedId()
 
 Citizen.CreateThread(function()
-    SetWeaponDamageModifier(taser, 0.1)
+    SetWeaponDamageModifier(taser, Config.TaserDmg)
 end)
 
 -- ONLY WORKS ON PLAYERS
 Citizen.CreateThread(function()
+	local src = PlayerPedId()
 	while true do
 		Citizen.Wait(1)
 		if IsPedBeingStunned(src) then
